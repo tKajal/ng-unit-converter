@@ -1,23 +1,41 @@
+<!-- <div class="container">
+  <h1>{{ 'converter.title' | translate }}</h1>
+  <form>
+    <div class="input-group">
+      <label for="pxInput">{{ 'converter.enterPxValue' | translate }}</label>
+      <input type="number" [(ngModel)]="pxValue" name="pxInput" id="pxInput" />
+    </div>
+    <div class="input-group">
+      <label for="baseFontSize">{{ 'converter.baseFontSize' | translate }}</label>
+      <input type="number" [(ngModel)]="baseFontSize" name="baseFontSize" id="baseFontSize" />
+    </div>
+    <button type="button" (click)="convert()">{{ 'converter.buttonlabel' | translate }}</button>
+  </form>
+  <div *ngIf="converted">
+    <div class="result">
+      <p><strong>REM:</strong> {{ remValue }}rem</p>
+      <p><strong>EM:</strong> {{ emValue }}em</p>
+      <p><strong>Percentage:</strong> {{ percentageValue }}%</p>
+    </div>
+  </div>
+</div> -->
 <div class="container">
-    <!-- <h1>PX to REM/EM/Percentage Converter</h1> -->
-    <h1>{{ 'converter.title' | translate }}</h1>
-    <form>
-      <div class="input-group">
-        <label for="pxInput">{{ 'converter.enterPxValue' | translate }}</label>
-        <input type="number" [(ngModel)]="pxValue" name="pxInput" id="pxInput" />
+  <h2 id="converterTitle" class="title text-color">REM to PX converter</h2>
+  <p class="subtitle text-color"><i class="text-color">No more calculator — just type and go!</i></p>
+
+  <div class="tool-box">
+    <div class="conv-box">
+      <div class="field-box">
+        <p class="text-color">PX</p>
+        <input type="text" [(ngModel)]="pxValue" (input)="convertToRem()" class="from-unit" />
       </div>
-      <div class="input-group">
-        <label for="baseFontSize">{{ 'converter.baseFontSize' | translate }}</label>
-        <input type="number" [(ngModel)]="baseFontSize" name="baseFontSize" id="baseFontSize" />
-      </div>
-      <button type="button" (click)="convert()">{{ 'converter.buttonlabel' | translate }}</button>
-    </form>
-    <div *ngIf="converted">
-      <div class="result">
-        <p><strong>REM:</strong> {{ remValue }}rem</p>
-        <p><strong>EM:</strong> {{ emValue }}em</p>
-        <p><strong>Percentage:</strong> {{ percentageValue }}%</p>
+
+      <a (click)="swapValues()" class="toggle-swap" title="Swap">⇄</a>
+
+      <div class="field-box">
+        <p class="text-color">REM</p>
+        <input type="text" [(ngModel)]="remValue" (input)="convertToPx()" class="to-unit" />
       </div>
     </div>
   </div>
-  
+</div>
