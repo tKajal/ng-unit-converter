@@ -1,0 +1,17 @@
+{
+  "welcome": "Welcome to the app!",
+  "hello": "Hello, {{name}}!",
+  "home": {
+    "section1": "<h2>FAQ</h2><h3> REM और PX में क्या अंतर है? आसान भाषा में समझें (With Free Converter Tool)</h3><h3>Introduction:</h3><h4>अगर आप Web Design या Frontend Development सीख रहे हैं, तो आपने दो CSS units ज़रूर सुने होंगे: REM और PX. लेकिन अक्सर Beginners को ये समझ नहीं आता कि इनमें फर्क क्या है, और कौन सा कब Use करना चाहिए?</h4><h4>इस Blog में हम आसान भाषा में जानेंगे:</h4><h3> REM और PX क्या होते हैं?</h3><h3>इनका आपस में क्या फर्क है?</h3><h4>कब REM Use करना चाहिए और कब PX?</h4><p> Bonus: एक Free Tool जिससे आप REM को PX में तुरंत बदल सकते हैं!</p><p>---</p><h3> PX क्या होता है?</h3><p> PX का मतलब होता है \"Pixels\". ये एक fixed unit है – मतलब:</p><p>> 1px = आपकी स्क्रीन पर एक छोटे से बिंदु जितना।</p><h3>उदाहरण:</h3><h2>font-size: 16px;</h2><p>इसका मतलब होगा कि आपके टेक्स्ट की साइज 16 pixels होगी – हर डिवाइस पर एक जैसी।</p><p>---</p><h3>REM क्या होता है?</h3><h3>REM का मतलब होता है \"Root EM\". ये एक relative unit है, जो आपकी HTML में सेट base font-size पर depend करती है।</h3><h4>> 1rem = HTML tag में दिए गए font-size के बराबर।</h4><h3>उदाहरण:</h3><p>अगर आपकी HTML में यह है:</p><pre><code>html { font-size: 16px; }</code></pre><p>तो:</p><code>font-size: 2rem; // होगा 2 x 16px = 32px</code><p>---</p><p>REM vs PX: बड़ा फर्क क्या है?</p><p>---</p><h3>REM को PX में Convert कैसे करें?</h3><h3>अब अगर आप कहें कि 1.5rem = कितने px?</h3><p>तो आपको formula लगाना होगा:</p><code>1rem = 16px (अगर base यही है) 1.5rem = 1.5 × 16 = 24px</code><p>लेकिन बार-बार manually calculation करना आसान नहीं है।</p><p>---</p><p>Use This Free REM to PX Converter Tool</p><p>अब आपके लिए बना है एक Simple Online Tool जो ये सब एक क्लिक में कर देता है। Tool Link: Use REM to PX Converter Tool (Tool को live जरूर करो और लिंक यहाँ लगाओ) बस REM में value डालो, Enter दबाओ – और Result खुद मिल जाएगा।</p><p>---</p><h3>Bonus: PX से REM में कैसे Convert करें?</h3><p>बस उल्टा करो:</p><p>px value ÷ base font-size = rem</p><p>Example: 24px ÷ 16 = 1.5rem</p><p>---</p><h3>Conclusion:</h3><h3> PX fixed होता है, REM flexible</h3><p>REM से responsive design बनाना आसान होता है</p><p>Accessibility में REM ज़्यादा helpful होता है</p><p>और हाँ, अब आप Manual calculation की जगह हमारा Tool Use करें – Fast & Free!</p><p>---</p><h3>FAQs:</h3><h3>Q1: क्या REM सिर्फ font-size के लिए use होता है?</h3><p>नहीं, आप margin, padding, width आदि में भी REM use कर सकते हैं।</p><h3>Q2: क्या base font-size हमेशा 16px ही होता है?</h3><p>By default हाँ, लेकिन आप HTML tag में इसे बदल सकते हैं।</p><p>---</p><p>Call-To-Action (CTA):</p><p>अगर आपको ये पोस्ट समझ आई, तो इसे अपने Developer Friends के साथ ज़रूर शेयर करें। और ऐसे ही Free Tools और आसान Tutorials के लिए हमारी Website को Bookmark करें!</p>"
+  },
+  "converter": {
+    "title": "PX को REM/EM/प्रतिशत में कन्वर्ट करें",
+    "buttonlabel": "कन्वर्ट करें",
+    "enterPxValue": "PX मान दर्ज करें:",
+    "baseFontSize": "बेस फ़ॉन्ट साइज़ (डिफ़ॉल्ट 16px है):"
+
+  },
+  "navbar": {
+    "title": "PX से REM कन्वर्टर"
+  }
+}

@@ -14,6 +14,14 @@
 
 	--seven: 0.438rem; /* 7px */
 	--twelve: 0.75rem; /* 12px */
+
+	--primary: #2563EB;
+	--secondary: #0EA5E9;
+	--background: #F8FAFC;
+	--text-dark: #1E293B;
+	--hover: #3B82F6;
+	--nav-footer-bg: #0F172A;
+	--white: #ffffff;
 }
 
 *, *::before, *::after {
@@ -135,6 +143,12 @@ main {
     }
 }
 /* -------- */
+
+app-root{
+	width: 100%;
+}
+/* styles.css */
+/* styles.css */
 /* styles.css */
 /* styles.css */
 html, body {
@@ -148,5 +162,8 @@ html, body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	background-color: #F9FAFB;
+    color: #1E293B;
+    font-family: 'Inter', sans-serif;
   }
-  
+ 
