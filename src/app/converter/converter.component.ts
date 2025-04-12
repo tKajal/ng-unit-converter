@@ -7,55 +7,54 @@ import { TranslatePipe } from '../pipes/translate.pipe';
   selector: 'app-converter',
   templateUrl: './converter.component.html',
   styleUrls: ['./converter.component.scss'],
-  standalone:true,
-  imports:[CommonModule, FormsModule, TranslatePipe]
+  standalone: true,
+  imports: [CommonModule, FormsModule, TranslatePipe]
 })
 export class ConverterComponent {
 
-  pxValue: string = '';
-  remValue: string = '';
-  baseFontSize = 16; // You can make this dynamic if needed
+  baseFontSize = 16;
+  isRemToPx = true;
 
-  convertToRem() {
-    const px = parseFloat(this.pxValue);
-    if (!isNaN(px)) {
-      this.remValue = (px / this.baseFontSize).toFixed(2);
+  fromValue: string = '';
+  toValue: string = '';
+
+  get converterTitle(): string {
+    return this.isRemToPx ? 'REM to PX converter' : 'PX to REM converter';
+  }
+
+  get fromLabel(): string {
+    return this.isRemToPx ? 'REM' : 'PX';
+  }
+
+  get toLabel(): string {
+    return this.isRemToPx ? 'PX' : 'REM';
+  }
+
+  onFromInput(): void {
+    const value = parseFloat(this.fromValue);
+    if (!isNaN(value)) {
+      this.toValue = this.isRemToPx
+        ? (value * this.baseFontSize).toFixed(2)
+        : (value / this.baseFontSize).toFixed(2);
     } else {
-      this.remValue = '';
+      this.toValue = '';
     }
   }
 
-  convertToPx() {
-    const rem = parseFloat(this.remValue);
-    if (!isNaN(rem)) {
-      this.pxValue = (rem * this.baseFontSize).toFixed(2);
+  onToInput(): void {
+    const value = parseFloat(this.toValue);
+    if (!isNaN(value)) {
+      this.fromValue = this.isRemToPx
+        ? (value / this.baseFontSize).toFixed(2)
+        : (value * this.baseFontSize).toFixed(2);
     } else {
-      this.pxValue = '';
+      this.fromValue = '';
     }
   }
 
-  swapValues() {
-    [this.pxValue, this.remValue] = [this.remValue, this.pxValue];
+  swapValues(): void {
+    [this.fromValue, this.toValue] = [this.toValue, this.fromValue];
+    this.isRemToPx = !this.isRemToPx;
   }
 
-  // pxValue: number = 0;
-  // baseFontSize: number = 16;
-  // remValue: string = '';
-  // emValue: string = '';
-  // percentageValue: string = '';
-  // converted: boolean = false;
-
-  // convert() {
-  //   const px = this.pxValue || 0;
-  //   const base = this.baseFontSize || 16;
-
-  //   const rem = (px / base).toFixed(4);
-  //   const em = rem;
-  //   const percent = ((px / base) * 100).toFixed(2);
-
-  //   this.remValue = rem;
-  //   this.emValue = em;
-  //   this.percentageValue = percent;
-  //   this.converted = true;
-  // }
 }

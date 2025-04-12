@@ -1,40 +1,29 @@
-<!-- <div class="container">
-  <h1>{{ 'converter.title' | translate }}</h1>
-  <form>
-    <div class="input-group">
-      <label for="pxInput">{{ 'converter.enterPxValue' | translate }}</label>
-      <input type="number" [(ngModel)]="pxValue" name="pxInput" id="pxInput" />
-    </div>
-    <div class="input-group">
-      <label for="baseFontSize">{{ 'converter.baseFontSize' | translate }}</label>
-      <input type="number" [(ngModel)]="baseFontSize" name="baseFontSize" id="baseFontSize" />
-    </div>
-    <button type="button" (click)="convert()">{{ 'converter.buttonlabel' | translate }}</button>
-  </form>
-  <div *ngIf="converted">
-    <div class="result">
-      <p><strong>REM:</strong> {{ remValue }}rem</p>
-      <p><strong>EM:</strong> {{ emValue }}em</p>
-      <p><strong>Percentage:</strong> {{ percentageValue }}%</p>
-    </div>
-  </div>
-</div> -->
 <div class="container">
-  <h2 id="converterTitle" class="title text-color">REM to PX converter</h2>
-  <p class="subtitle text-color"><i class="text-color">No more calculator — just type and go!</i></p>
+  <h2 class="title text-color">{{ converterTitle }}</h2>
+  <p class="subtitle text-color"><i class="text-color">Convert values easily and accurately!</i></p>
 
   <div class="tool-box">
     <div class="conv-box">
       <div class="field-box">
-        <p class="text-color">PX</p>
-        <input type="text" [(ngModel)]="pxValue" (input)="convertToRem()" class="from-unit" />
+        <p class="text-color">{{ fromLabel }}</p>
+        <input
+          type="text"
+          [(ngModel)]="fromValue"
+          (input)="onFromInput()"
+          class="from-unit"
+        />
       </div>
 
       <a (click)="swapValues()" class="toggle-swap" title="Swap">⇄</a>
 
       <div class="field-box">
-        <p class="text-color">REM</p>
-        <input type="text" [(ngModel)]="remValue" (input)="convertToPx()" class="to-unit" />
+        <p class="text-color">{{ toLabel }}</p>
+        <input
+          type="text"
+          [(ngModel)]="toValue"
+          (input)="onToInput()"
+          class="to-unit"
+        />
       </div>
     </div>
   </div>
