@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { ConverterComponent } from './converter/converter.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ContentComponent } from './content/content.component';
 import { TranslatePipe } from './pipes/translate.pipe';
+import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, ConverterComponent, NavbarComponent, FooterComponent, ContentComponent],
+  imports: [RouterModule, RouterOutlet, FormsModule, ConverterComponent, NavbarComponent, FooterComponent, ContentComponent, ContactComponent, HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

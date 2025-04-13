@@ -1,7 +1,7 @@
-
-app-root{
-    width: 100%;
+app-root {
+  width: 100%;
 }
+
 :host {
   display: flex;
   flex-direction: column;
@@ -16,5 +16,31 @@ app-root{
 
 .main-content {
   flex: 1;
-  padding: 20px;
+  padding: 70px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* full height */
+}
+
+.content {
+  flex: 1;
+  /* take up available space */
+  padding: 1rem;
+}
+
+.footer {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
 }

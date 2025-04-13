@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '../pipes/translate.pipe';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
   styleUrls: ['./converter.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe]
+  imports: [RouterModule, CommonModule, FormsModule, TranslatePipe]
 })
 export class ConverterComponent {
 

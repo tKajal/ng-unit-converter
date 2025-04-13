@@ -1,0 +1,15 @@
+<div class="contact-container">
+  <h2>Contact Us</h2>
+  <p>If you have any questions, feel free to reach out using the form below.</p>
+
+  <form (submit)="submitForm()">
+    <input type="text" placeholder="Your Name" [(ngModel)]="name" name="name" required />
+    <input type="email" placeholder="Your Email" [(ngModel)]="email" name="email" required />
+    <textarea rows="5" placeholder="Your Message" [(ngModel)]="message" name="message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div *ngIf="submitted" style="margin-top: 1rem; color: lightgreen;">
+    ✅ Your message has been sent!
+  </div>
+</div>
