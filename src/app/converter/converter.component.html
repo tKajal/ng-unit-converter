@@ -6,25 +6,16 @@
     <div class="conv-box">
       <div class="field-box">
         <p class="text-color">{{ fromLabel }}</p>
-        <input
-          type="text"
-          [(ngModel)]="fromValue"
-          (input)="onFromInput()"
-          class="from-unit"
-        />
+        <input type="text" [(ngModel)]="fromValue" (input)="onFromInput()" class="from-unit" [disabled]="!fromLabel" />
       </div>
 
       <a (click)="swapValues()" class="toggle-swap" title="Swap">⇄</a>
 
       <div class="field-box">
         <p class="text-color">{{ toLabel }}</p>
-        <input
-          type="text"
-          [(ngModel)]="toValue"
-          (input)="onToInput()"
-          class="to-unit"
-        />
+        <input type="text" [(ngModel)]="toValue" (input)="onToInput()" class="to-unit" />
       </div>
     </div>
   </div>
 </div>
+<app-content></app-content>

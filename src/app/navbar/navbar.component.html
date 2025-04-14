@@ -11,7 +11,17 @@
         <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">🏠 Home</a>
         </li>
         <li><a routerLink="/about">ℹ️ About</a></li>
-        <li><a routerLink="/tools">🧰 Tools</a></li>
+        <!-- <li><a routerLink="/tools">🧰 Tools</a></li> -->
+        <li class="dropdown">
+          <a class="dropdown-toggle">🛠️ Tools</a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let tool of tools">
+              <a [routerLink]="['/converter', tool.key]" routerLinkActive="active-link">
+                {{ tool.name }}
+              </a>
+            </li>
+          </ul>
+        </li>
         <li><a routerLink="/contact" [class.active-link]="router.url === '/contact'">📨 Contact</a></li>
       </ul>
 

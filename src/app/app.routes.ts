@@ -4,10 +4,13 @@ import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
     {
-        path: '', component: HomeComponent,
-    },
-    {
 
         path: 'contact', component: ContactComponent
 
-    }];
+    },
+    { path: 'converter/:type', loadComponent: () => import('./converter/converter.component').then(m => m.ConverterComponent) },
+
+    { path: '', component: HomeComponent },  // Home page as the default
+    // { path: 'converter/:type', component: ConverterComponent },
+    { path: '**', redirectTo: '' }  // Catch-all route
+];

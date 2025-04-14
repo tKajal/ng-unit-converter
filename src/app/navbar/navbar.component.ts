@@ -16,7 +16,13 @@ export class NavbarComponent {
 
   isOpen = false;
   menuOpen = false;
-  //isOpen = false;
+
+  tools = [
+    { name: 'PX to REM Converter', key: 'px-to-rem' },
+    { name: 'REM to PX Converter', key: 'rem-to-px' },
+    { name: 'PX to EM Converter', key: 'px-to-em' },
+    { name: 'PX to % Converter', key: 'px-to-percent' }
+  ];
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -41,30 +47,7 @@ export class NavbarComponent {
     }
   }
 
-  changeUnit(unit: string) {
-    // You can emit this event to parent or use a service
-    console.log('Change to:', unit);
-  }
-  //menuOpen = false;
-  //isOpen = false;
-  //languages = this.translationService.getLanguages();
-  //currentLang = this.translationService.getCurrentLang();
-  //currentLangLabel = this.languages.find(l => l.code === this.currentLang)?.label || 'EN';
-
-  // constructor(private translationService: TranslationService) {}
-
-  // toggleMenu() {
-  //   this.menuOpen = !this.menuOpen;
-  // }
-
-  // toggleDropdown() {
-  //   this.isOpen = !this.isOpen;
-  // }
-
   constructor(private translationService: TranslationService, public router: Router) {
-    // Get default lang from URL
-    // const path = this.location.pathname
-    // const match = path.match(/^\/(en|hi|fr)/);
     this.currentLang = this.translationService.currentLanguage() || 'en';
     console.log(this.currentLang)
   }
@@ -74,19 +57,12 @@ export class NavbarComponent {
     return `${lang?.flag || '🌐'} ${lang?.label || 'Language'}`;
   }
 
-  // toggleDropdown(): void {
-  //   this.isOpen = !this.isOpen;
-  // }
-
   switchLang(langCode: string): void {
     this.translationService.changeLanguage(langCode);
     this.currentLang = langCode;
     this.isOpen = false;
   }
-  // changeLanguage(lang: string): void {
-  //   this.translationService.changeLanguage(lang);
-  //   this.currentLang = lang;
-  // }
+
   @HostListener('document:click', ['$event'])
   onOutsideClick(event: MouseEvent): void {
     const clickedInside = (event.target as HTMLElement).closest('.lang-wrapper');

@@ -1,4 +1,13 @@
-<div class="main-content">
-  <app-converter></app-converter>
-  <app-content></app-content>
+<div class="home-container">
+  <h1 class="home-title">Welcome to the Converter Tools</h1>
+  <p class="home-subtitle">Choose a conversion tool below to get started!</p>
+
+  <div class="tools-grid">
+    <div class="tool-card" *ngFor="let tool of tools" (click)="navigateToTool(tool.key)">
+      <div class="tool-card-content">
+        <h3>{{ tool.name }}</h3>
+        <p>Click to convert from one unit to another!</p>
+      </div>
+    </div>
+  </div>
 </div>

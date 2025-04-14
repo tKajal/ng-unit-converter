@@ -12,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .logo {
@@ -158,4 +159,48 @@
   .lang-dropdown {
     width: auto;
   }
+}
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+  background-color: #111827;
+  padding: 1rem;
+}
+
+.navbar li {
+  position: relative;
+  list-style: none;
+}
+
+.navbar .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #1f2937;
+  padding: 0.5rem 0;
+  top: 100%;
+  left: 0;
+  border-radius: 0.5rem;
+  min-width: 220px;
+  z-index: 1000;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.navbar .dropdown-menu li {
+  padding: 3px;
+}
+
+.navbar .dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar .dropdown-menu a:hover,
+.navbar .dropdown-menu a.active-link {
+  background-color: #3b82f6;
 }
