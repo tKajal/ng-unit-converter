@@ -1,12 +1,4 @@
 /* Base styling */
-.navbar {
-  background-color: #1F2937;
-  padding: 1rem;
-  color: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
 
 .nav-box {
   display: flex;
@@ -162,10 +154,13 @@
 }
 
 .navbar {
-  display: flex;
-  gap: 1rem;
   background-color: #111827;
   padding: 1rem;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
 }
 
 .navbar li {

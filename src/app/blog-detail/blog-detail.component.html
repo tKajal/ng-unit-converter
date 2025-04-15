@@ -1,0 +1,18 @@
+<div class="blog-detail">
+    <div class="hero-section">
+        <h1 class="title">{{ blog?.title }}</h1>
+        <div class="meta">
+            <span>📅 {{ blog?.date }}</span>
+            <span>✍️ {{ blog?.author || 'Admin' }}</span>
+            <span>⏱️ 3 min read</span>
+        </div>
+    </div>
+
+    <div class="blog-content">
+        <p *ngFor="let para of blog?.content">{{ para }}</p>
+    </div>
+
+    <div class="blog-footer">
+        <a [routerLink]="['/blog']" class="back-link">← Back to All Blogs</a>
+    </div>
+</div>

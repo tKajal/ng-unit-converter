@@ -1,0 +1,61 @@
+.blog-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  color: #e5e7eb;
+  font-family: 'Inter', sans-serif;
+
+  .hero-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    .title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #94a3b8;
+      flex-wrap: wrap;
+    }
+  }
+
+  .blog-content {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #d1d5db;
+    padding-bottom: 2rem;
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .blog-footer {
+    text-align: left;
+
+    .back-link {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #111827;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      color: #111827;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #3F51B5;
+        color: #fff;
+        border: 1px solid #3F51B5;
+      }
+    }
+  }
+}

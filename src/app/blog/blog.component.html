@@ -1,0 +1,18 @@
+<div class="blog-page">
+  <div class="blog-header">
+    <h1 class="title">Explore Our Blog</h1>
+    <p class="description">
+      Stay informed with helpful articles on web design units, best practices for responsive layouts,
+      accessibility tips, and everything you need to know about pixel, rem, em, and percent conversions.
+    </p>
+  </div>
+
+  <div class="blog-list">
+    <div class="blog-card" *ngFor="let blog of blogs">
+      <h3>{{ blog.title }}</h3>
+      <div class="date">Published: {{ blog.date }}</div>
+      <p class="excerpt">{{ blog.excerpt }}</p>
+      <a [routerLink]="['/blog', blog.id]" class="read-more">Read More →</a>
+    </div>
+  </div>
+</div>
