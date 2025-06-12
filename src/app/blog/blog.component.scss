@@ -16,7 +16,7 @@
       display: block;
       width: 60px;
       height: 4px;
-      background-color: #4caf50;
+      background-color: #70c4fd;
       margin: 0.5rem auto 0;
       border-radius: 2px;
     }
@@ -47,7 +47,7 @@
     h3 {
       font-size: 1.4rem;
       margin-bottom: 1.75rem;
-      color: #fff;
+      color: var(--text-white);
       margin-top: 4px;
     }
 
@@ -64,13 +64,13 @@
     }
 
     .read-more {
-      color: #4caf50;
+      color: #70c4fd;
       font-weight: 500;
       text-decoration: none;
       font-size: 0.95rem;
 
       &:hover {
-        color: #81c784;
+        color: #70c4fd;
         text-decoration: underline;
       }
     }

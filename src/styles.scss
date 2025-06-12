@@ -20,13 +20,48 @@
   --twelve: 0.75rem;
   /* 12px */
 
-  --primary: #2563EB;
+  //--primary: #2563EB;
   --secondary: #0EA5E9;
   --background: #F8FAFC;
   --text-dark: #1E293B;
   --hover: #3B82F6;
   --nav-footer-bg: #0F172A;
-  --white: #ffffff;
+  --base-font-size: 16px;
+  --primary: #3f51b5;
+  --text-color: #333;
+  font-size: 16px;
+
+
+  --color-primary: #3B82F6;
+  --color-secondary: #6366F1;
+  --color-accent: #F472B6;
+
+  --color-bg: #F8FAFC;
+  --color-card: #FFFFFF;
+  --color-text: #0F172A;
+  --color-text-sub: #475569;
+  --color-border: #E2E8F0;
+  --color-nav: #FFFFFF;
+  --color-hover: #EFF6FF;
+  --text-white: #fff;
+
+/* navbar colors */
+
+  --nav-bg: #0f172a;
+  --nav-text: #111827;
+
+/* converter box colors */
+
+  --converter-bg: #f9fafb;
+  --converter-text: #111827;  
+
+/* buttons colors */
+  --button-bg: #10b981;  
+  --button-text: #111827;
+
+  /* links colors */
+  // --link-text: #e5e7eb;  
+  --link-text: #374151; 
 }
 
 *,
@@ -170,3 +205,79 @@ body {
   padding: 0;
   font-size: var(--font-size-primary);
 }
+
+//----------------------
+/* Default Light Theme */
+body {
+  background-color: #f9fafb;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+// .dark-theme {
+//   background-color: #0f172a;
+//   color: #f9fafb;
+
+//   .card, .navbar, .footer, .form, .tools-section {
+//     background-color: #1e293b;
+//     color: #f1f5f9;
+//   }
+
+//   a {
+//     color: #3b82f6;
+//   }
+
+//   input, textarea, button {
+//     background-color: #1e293b;
+//     color: var(--text-white);
+//     border-color: #334155;
+//   }
+// }
+body {
+  background-color: #f9fafb; // light grey
+  color: #1f2937; // dark text
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Theme */
+/* Light Theme */
+body {
+  background-color: #f9fafb;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  background-color: #ffffff;
+  color: #1f2937;
+}
+
+.dark-theme {
+  --color-bg: #0F172A;
+  --color-card: #334155;
+  --color-text: #F9FAFB;
+  --color-text-sub: #CBD5E1;
+  --color-border: #334155;
+  --color-nav: #1E293B;
+  --color-hover: #1E40AF;
+
+  /* navbar colors */
+
+  --nav-bg: #0f172a;
+  --nav-text: #111827;
+
+
+  /* converter box colors */
+
+  --converter-bg: #1e293b;
+  --converter-text: #111827;
+
+  /* buttons colors */
+  --button-bg: #22c55e;  
+  --button-text: #111827;
+
+  /* links colors */
+  --link-text: #374151;  
+
+}
+

@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../services/translation.service';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { Router, RouterModule } from '@angular/router';
+import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, FormsModule, TranslatePipe, RouterModule],
+  imports: [CommonModule, FormsModule, TranslatePipe, RouterModule, ThemeToggleComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

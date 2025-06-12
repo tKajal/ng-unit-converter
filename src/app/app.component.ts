@@ -8,11 +8,13 @@ import { ContentComponent } from './content/content.component';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
+import { ConversionTableComponent } from './conversion-table/conversion-table.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, FormsModule, ConverterComponent, NavbarComponent, FooterComponent, ContentComponent, ContactComponent, HomeComponent],
+  imports: [RouterModule, RouterOutlet, FormsModule, ConverterComponent, NavbarComponent, FooterComponent, ContentComponent,
+     ContactComponent, HomeComponent, ConversionTableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

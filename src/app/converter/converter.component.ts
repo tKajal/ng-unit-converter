@@ -1,20 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { OnInit } from '@angular/core';
 import { ContentComponent } from '../content/content.component';
 import { Router } from '@angular/router';
+import { ConversionTableComponent } from '../conversion-table/conversion-table.component';
+import { FaqComponent } from '../faq/faq.component';
 
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
   styleUrls: ['./converter.component.scss'],
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule, TranslatePipe, ContentComponent]
+  imports: [RouterModule, CommonModule, FormsModule, TranslatePipe, ContentComponent,
+    ConversionTableComponent, ReactiveFormsModule, FaqComponent
+  ]
 })
+
 export class ConverterComponent implements OnInit {
   fromValue = '';
   toValue = '';
@@ -26,6 +31,17 @@ export class ConverterComponent implements OnInit {
   converterTitle = '';
 
   constructor(private route: ActivatedRoute, private router: Router) { }
+
+  feedbackText: string = '';
+  pxValues = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 96, 100];
+
+  onSubmitFeedback() {
+    if (this.feedbackText.trim()) {
+      console.log('User Feedback:', this.feedbackText);
+      // Add logic to send it to a backend or show a thank you message
+      this.feedbackText = '';
+    }
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -76,6 +92,10 @@ export class ConverterComponent implements OnInit {
         this.fromLabel = 'From';
         this.toLabel = 'To';
     }
+  }
+
+  onBaseFontSizeChange() {
+    this.onFromInput();
   }
 
   onFromInput(): void {

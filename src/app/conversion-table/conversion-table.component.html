@@ -1,0 +1,23 @@
+<section class="conversion-table">
+  <h2>PX to REM / EM / % Conversion Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>PX</th>
+        <th>REM (16px)</th>
+        <th>REM (10px)</th>
+        <th>EM</th>
+        <th>%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let px of pxValues">
+        <td>{{ px }}</td>
+        <td>{{ (px / 16) | number:'1.2-2' }} rem</td>
+        <td>{{ (px / 10) | number:'1.2-2' }} rem</td>
+        <td>{{ (px / 16) | number:'1.2-2' }} em</td>
+        <td>{{ (px / 16 * 100) | number:'1.0-0' }}%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

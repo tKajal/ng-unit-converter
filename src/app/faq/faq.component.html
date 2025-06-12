@@ -1,0 +1,12 @@
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq" *ngFor="let item of faqs; let i = index" [class.open]="openIndex === i">
+    <button class="faq-question" (click)="toggleFAQ(i)">
+      {{ item.question }}
+    </button>
+    <div class="faq-answer" *ngIf="openIndex === i">
+      <p>{{ item.answer }}</p>
+    </div>
+  </div>
+</section>

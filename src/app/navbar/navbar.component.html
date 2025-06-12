@@ -1,6 +1,9 @@
 <nav class="navbar">
   <div class="nav-box">
-    <h2 class="logo">Logo</h2>
+    <h2 class="logo">
+      <img src="../../assets/images/logo6.png" alt="ResponsiveUnits"/>
+    </h2>
+
 
     <!-- Hamburger icon -->
     <div class="hamburger" (click)="toggleMenu()">☰</div>
@@ -27,7 +30,7 @@
       </ul>
 
       <!-- Language selector -->
-      <div class="lang-wrapper">
+      <!-- <div class="lang-wrapper">
         <button class="lang-toggle" (click)="toggleDropdown()">
           🌐 {{ currentLangLabel }} ▼
         </button>
@@ -36,7 +39,9 @@
             {{ lang.flag }} {{ lang.label }}
           </li>
         </ul>
-      </div>
+      </div> -->
+
+      <!-- <app-theme-toggle></app-theme-toggle> -->
     </div>
   </div>
 </nav>

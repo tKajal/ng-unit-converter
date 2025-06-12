@@ -1,0 +1,39 @@
+.conversion-table {
+  margin: 4rem auto;
+  padding: 2rem 1rem;
+  max-width: 80%;
+  background: var(--text-white);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.conversion-table h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #111827;
+}
+
+.conversion-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.conversion-table thead {
+  background-color: #f3f4f6;
+}
+
+.conversion-table th,
+.conversion-table td {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.conversion-table tbody tr:hover {
+  background-color: #f9fafb;
+}

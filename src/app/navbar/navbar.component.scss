@@ -10,14 +10,21 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--text-white);
   margin: .5rem;
+  margin-top: 20px;
+
+  img {
+    height: 54px;
+    line-height: 1;
+    background-size: cover;
+  }
 }
 
 .hamburger {
   font-size: 1.8rem;
   cursor: pointer;
-  color: #ffffff;
+  color: var(--text-white);
   display: block;
 }
 
@@ -52,7 +59,7 @@
 }
 
 .menu-items a {
-  color: #ffffff;
+  color: var(--text-white);
   text-decoration: none;
   font-size: 1rem;
   display: block;
@@ -77,7 +84,7 @@
 .lang-toggle {
   background-color: #374151;
   border: none;
-  color: #ffffff;
+  color: var(--text-white);
   padding: 0.5rem;
   border-radius: 5px;
   cursor: pointer;
@@ -98,7 +105,7 @@
 
 .lang-dropdown li {
   padding: 0.3rem 0.5rem;
-  color: #ffffff;
+  color: var(--text-white);
   cursor: pointer;
 }
 
@@ -156,11 +163,14 @@
 .navbar {
   background-color: #111827;
   padding: 1rem;
-  color: #ffffff;
+  color: var(--text-white);
+  --nav-bg: #0f172a;
+  --nav-text: #111827;
   position: sticky;
   top: 0;
   z-index: 999;
   display: flex;
+  height: 92px;
 }
 
 .navbar li {
@@ -191,11 +201,11 @@
 .navbar .dropdown-menu a {
   display: block;
   padding: 0.5rem 1rem;
-  color: white;
+  color: var(--text-white);
   text-decoration: none;
 }
 
 .navbar .dropdown-menu a:hover,
 .navbar .dropdown-menu a.active-link {
-  background-color: #3b82f6;
+  background-color: var(--link-text);
 }

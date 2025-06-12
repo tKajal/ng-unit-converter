@@ -17,5 +17,112 @@
       </div>
     </div>
   </div>
+
+  <p class="unobtrusive-context"><label>
+      Calculation based on a <code>font-size</code> of <span class="inline-setting" onclick="this.firstChild.focus()">
+        <input id="base" (input)="onBaseFontSizeChange()" [(ngModel)]="baseFontSize" type="text" value="16" size="2"
+          decimals="1" format="technical"> </span> pixel.
+    </label>
+  </p>
 </div>
-<app-content></app-content>
+
+<!-- Explanation Section -->
+
+<section class="explanation-section">
+  <h2>What is a PX to REM Converter?</h2>
+  <p>
+    A PX to REM converter helps web designers and developers convert pixel (px) values into relative rem units. This
+    promotes responsive, scalable, and accessible web design.
+  </p>
+
+  <h3>Why Use REM Instead of PX?</h3>
+  <p>
+    REM units are relative to the root HTML element’s font size (commonly 16px). Benefits include:
+  </p>
+  <ul>
+    <li>Scales better on different screen sizes</li>
+    <li>Respects user accessibility settings</li>
+    <li>Cleaner and more maintainable CSS</li>
+  </ul>
+
+  <h3>How to Convert PX to REM</h3>
+  <p>
+    Formula: <strong>rem = px ÷ base font size</strong><br>
+    Example: <code>32px ÷ 16 = 2rem</code>
+  </p>
+
+  <section class="difference-section">
+    <h2>Difference Between PX and REM</h2>
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>PX</th>
+          <th>REM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Type</td>
+          <td>Fixed</td>
+          <td>Relative</td>
+        </tr>
+        <tr>
+          <td>Responsive</td>
+          <td>Low</td>
+          <td>High</td>
+        </tr>
+        <tr>
+          <td>Accessibility Friendly</td>
+          <td>No</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Control</td>
+          <td>Set on every element</td>
+          <td>Set only on root</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+</section>
+
+<section class="why-rem-section">
+  <h2>Why Use REM Instead of PX?</h2>
+  <p>
+    REM (Root EM) units are relative to the root font size of your HTML document, making them a flexible and accessible
+    alternative to fixed pixel units.
+  </p>
+  <ul>
+    <li><strong>Responsive Design:</strong> REM scales better across devices, improving usability on mobile, tablet, and
+      desktop screens.</li>
+    <li><strong>Accessibility:</strong> Users with custom browser settings benefit from text that resizes with their
+      preferences.</li>
+    <li><strong>Cleaner Code:</strong> Using REM helps you maintain consistency in spacing and typography without
+      hardcoding values.</li>
+    <li><strong>Maintainability:</strong> Change the root font size once, and the whole design scales up or down —
+      simple and efficient.</li>
+  </ul>
+</section>
+
+<app-conversion-table [maxPx]="100"></app-conversion-table>
+
+<app-faq></app-faq>
+
+<section class="cta-section">
+  <h3>Need More Conversions?</h3>
+  <p>Try our full suite of CSS unit converters and tools to streamline your workflow.</p>
+  <a routerLink="/tools" class="cta-button">Explore More Tools</a>
+</section>
+
+<section class="feedback-section">
+  <h2>Have Suggestions?</h2>
+  <p>We’d love to hear your thoughts on how we can improve this tool.</p>
+
+  <form (submit)="onSubmitFeedback()">
+    <textarea placeholder="Your feedback..." [(ngModel)]="feedbackText" name="feedback"></textarea>
+    <button type="submit">Submit Feedback</button>
+  </form>
+</section>
