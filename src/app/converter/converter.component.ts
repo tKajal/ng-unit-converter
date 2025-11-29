@@ -9,14 +9,14 @@ import { ContentComponent } from '../content/content.component';
 import { Router } from '@angular/router';
 import { ConversionTableComponent } from '../conversion-table/conversion-table.component';
 import { FaqComponent } from '../faq/faq.component';
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
   styleUrls: ['./converter.component.scss'],
   standalone: true,
   imports: [RouterModule, CommonModule, FormsModule, TranslatePipe, ContentComponent,
-    ConversionTableComponent, ReactiveFormsModule, FaqComponent
+    ConversionTableComponent, ReactiveFormsModule, FaqComponent, MatIconModule
   ]
 })
 
@@ -176,6 +176,17 @@ export class ConverterComponent implements OnInit {
     if (newType) {
       this.router.navigate(['/converter', newType], { replaceUrl: true });
     }
+  }
+
+  copyToClipboard(): void {
+    navigator.clipboard.writeText(this.toValue)
+      .then(() => {
+        console.log('Copied to clipboard:', this.toValue);
+        // optional: show user feedback
+      })
+      .catch(err => {
+        console.error('Copy failed:', err);
+      });
   }
 
 }

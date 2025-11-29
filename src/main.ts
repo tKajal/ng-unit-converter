@@ -4,7 +4,8 @@ import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { isDevMode, importProvidersFrom } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common'; // ✅ import this
+import { APP_BASE_HREF } from '@angular/common';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // ✅ import this
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -13,6 +14,6 @@ bootstrapApplication(AppComponent, {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    { provide: APP_BASE_HREF, useValue: '/browser' } // ✅ this line is crucial
+    { provide: APP_BASE_HREF, useValue: '/browser' }, provideAnimationsAsync() // ✅ this line is crucial
   ]
 }).catch(err => console.error(err));

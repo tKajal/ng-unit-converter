@@ -1,34 +1,52 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  name = '';
-  email = '';
-  message = '';
-  submitted = false;
+  name: string = '';
+  email: string = '';
+  message: string = '';
+  submitted: boolean = false;
+  loading: boolean = false;
+
+  constructor(private http: HttpClient) {}
 
   submitForm() {
-    this.submitted = true;
+    if (!this.name || !this.email || !this.message) {
+      return; // don’t send if invalid
+    }
 
-    // Simulate sending message (you can integrate actual backend later)
-    console.log('Message sent:', {
+    this.loading = true;
+
+    const formData = {
       name: this.name,
       email: this.email,
       message: this.message
-    });
+    };
 
-    // Clear form after submission
-    this.name = '';
-    this.email = '';
-    this.message = '';
+    // Example API call (replace with your backend endpoint)
+    this.http.post('https://your-api.com/contact', formData).subscribe({
+      next: () => {
+        this.submitted = true;
+        this.loading = false;
+
+        // Reset form fields
+        this.name = '';
+        this.email = '';
+        this.message = '';
+      },
+      error: (err) => {
+        console.error('Error sending message:', err);
+        this.loading = false;
+      }
+    });
   }
 }

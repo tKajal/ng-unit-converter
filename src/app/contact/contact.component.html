@@ -2,14 +2,61 @@
   <h2>Contact Us</h2>
   <p>If you have any questions, feel free to reach out using the form below.</p>
 
-  <form (submit)="submitForm()">
-    <input type="text" placeholder="Your Name" [(ngModel)]="name" name="name" required />
-    <input type="email" placeholder="Your Email" [(ngModel)]="email" name="email" required />
-    <textarea rows="5" placeholder="Your Message" [(ngModel)]="message" name="message" required></textarea>
-    <button type="submit">Send Message</button>
+  <form #contactForm="ngForm" (ngSubmit)="submitForm()" novalidate>
+    <!-- Name Field -->
+    <div class="field-group">
+      <label>Username</label>
+      <input
+        type="text"
+        placeholder="Your Name"
+        name="name"
+        [(ngModel)]="name"
+        required
+        #nameInput="ngModel"
+      />
+      <div *ngIf="nameInput.invalid && nameInput.touched" class="error">
+        Name is required.
+      </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="field-group">
+      <label>Email</label>
+      <input
+        type="email"
+        placeholder="Your Email"
+        name="email"
+        [(ngModel)]="email"
+        required
+        email
+        #emailInput="ngModel"
+      />
+      <div *ngIf="emailInput.invalid && emailInput.touched" class="error">
+        <span *ngIf="emailInput.errors?.['required']">Email is required.</span>
+        <span *ngIf="emailInput.errors?.['email']">Enter a valid email.</span>
+      </div>
+    </div>
+
+    <!-- Message Field -->
+    <div class="field-group">
+      <label>Message</label>
+      <textarea
+        rows="5"
+        placeholder="Your Message"
+        name="message"
+        [(ngModel)]="message"
+        required
+        #messageInput="ngModel"
+      ></textarea>
+      <div *ngIf="messageInput.invalid && messageInput.touched" class="error">
+        Message is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
   </form>
 
-  <div *ngIf="submitted" style="margin-top: 1rem; color: lightgreen;">
+  <div *ngIf="submitted" class="success-message">
     ✅ Your message has been sent!
   </div>
 </div>

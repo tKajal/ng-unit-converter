@@ -5,16 +5,24 @@
   <div class="tool-box">
     <div class="conv-box">
       <div class="field-box">
-        <p class="text-color">{{ fromLabel }}</p>
-        <input type="text" [(ngModel)]="fromValue" (input)="onFromInput()" class="from-unit" [disabled]="!fromLabel" />
+        <p class="text-color" data-cy="from-label">{{ fromLabel }}</p>
+        <input data-cy="from-input" type="text" [(ngModel)]="fromValue" (input)="onFromInput()" class="from-unit"
+          [disabled]="!fromLabel" />
       </div>
 
-      <a (click)="swapValues()" class="toggle-swap" title="Swap">⇄</a>
+      <a data-cy="swap-button" (click)="swapValues()" class="toggle-swap" title="Swap">⇄</a>
 
       <div class="field-box">
-        <p class="text-color">{{ toLabel }}</p>
-        <input type="text" [(ngModel)]="toValue" (input)="onToInput()" class="to-unit" />
+        <p class="text-color" data-cy="to-label">{{ toLabel }}</p>
+        <div class="copy-wrapper">
+          <input data-cy="to-input" type="text" class="to-unit" [value]="toValue" [(ngModel)]="toValue" (input)="onToInput()" >
+          <button mat-icon-button (click)="copyToClipboard()" aria-label="Copy to clipboard"
+           >
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
       </div>
+
     </div>
   </div>
 
