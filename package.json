@@ -9,7 +9,9 @@
     "test": "ng test",
     "serve:ssr:web": "node dist/web/server/server.mjs",
     "build:ssr": "ng build",
-    "dev:ssr": "ng run web:serve-ssr"
+    "dev:ssr": "ng run web:serve-ssr",
+    "build:prod": "ng build --configuration production",
+    "deploy": "npm run build:prod && cd dist/web/browser && vercel --prod --prebuilt"
   },
   "private": true,
   "dependencies": {
