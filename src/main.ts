@@ -2,18 +2,14 @@ import { bootstrapApplication, provideClientHydration } from '@angular/platform-
 import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
-import { provideServiceWorker } from '@angular/service-worker';
-import { isDevMode, importProvidersFrom } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // ✅ import this
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
-    { provide: APP_BASE_HREF, useValue: '/browser' }, provideAnimationsAsync(), provideClientHydration() // ✅ this line is crucial
+    provideClientHydration(),
+    provideAnimationsAsync(),
+    { provide: APP_BASE_HREF, useValue: '/' }
   ]
 }).catch(err => console.error(err));
