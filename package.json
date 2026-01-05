@@ -9,7 +9,7 @@
     "serve:ssr:web": "node dist/web/server/server.mjs",
     "build:ssr": "ng build",
     "dev:ssr": "ng run web:serve-ssr",
-    "build": "ng build --configuration production && ng run your-app:server:production",
+    "build": "ng build --configuration production && ng run web:server:production",
     "vercel-build": "npm run build"
   },
   "private": true,
