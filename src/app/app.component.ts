@@ -13,8 +13,9 @@ import { ConversionTableComponent } from './conversion-table/conversion-table.co
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, FormsModule, ConverterComponent, NavbarComponent, FooterComponent, ContentComponent,
-     ContactComponent, HomeComponent, ConversionTableComponent],
+  imports: [  RouterOutlet,
+    NavbarComponent,
+    FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

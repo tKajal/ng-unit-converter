@@ -1,0 +1,11 @@
+{
+  "version": 3,
+  "functions": {
+    "api/ssr.ts": {
+      "runtime": "nodejs22.x"
+    }
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/api/ssr.ts" }
+  ]
+}

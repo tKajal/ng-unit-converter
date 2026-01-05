@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { ConversionTableComponent } from '../conversion-table/conversion-table.component';
 import { FaqComponent } from '../faq/faq.component';
 import { MatIconModule } from '@angular/material/icon';
+import { SeoService } from '../../seo.service';
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
@@ -30,7 +31,9 @@ export class ConverterComponent implements OnInit {
   toLabel = '';
   converterTitle = '';
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router,
+    private seo: SeoService
+  ) { }
 
   feedbackText: string = '';
   pxValues = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 96, 100];
@@ -46,9 +49,32 @@ export class ConverterComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.toolType = params.get('type') ?? '';
-      this.setToolConfig(true); // Reset values on navigation
+      this.setToolConfig(true);
+
+      this.updateSeo();
     });
   }
+
+  updateSeo() {
+    switch (this.toolType) {
+      case 'px-to-rem':
+        this.seo.update(
+          'PX to REM Converter Online – Responsive Units',
+          'Free PX to REM converter for responsive CSS. Convert px to rem instantly.',
+          'https://responsive-units.vercel.app/converter/px-to-rem'
+        );
+        break;
+
+      case 'rem-to-px':
+        this.seo.update(
+          'REM to PX Converter Online – Responsive Units',
+          'Convert REM to PX instantly with accurate CSS unit calculations.',
+          'https://responsive-units.vercel.app/converter/rem-to-px'
+        );
+        break;
+    }
+  }
+
 
   setToolConfig(shouldReset: boolean = true): void {
     if (shouldReset) {

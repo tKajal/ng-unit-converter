@@ -1,4 +1,4 @@
-import { bootstrapApplication } from '@angular/platform-browser';
+import { bootstrapApplication, provideClientHydration } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
@@ -14,6 +14,6 @@ bootstrapApplication(AppComponent, {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    { provide: APP_BASE_HREF, useValue: '/browser' }, provideAnimationsAsync() // ✅ this line is crucial
+    { provide: APP_BASE_HREF, useValue: '/browser' }, provideAnimationsAsync(), provideClientHydration() // ✅ this line is crucial
   ]
 }).catch(err => console.error(err));
