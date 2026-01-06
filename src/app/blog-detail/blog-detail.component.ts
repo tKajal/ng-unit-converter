@@ -22,23 +22,6 @@ export class BlogDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const schema = {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: this.blog.title,
-      datePublished: this.blog.date,
-      author: {
-        '@type': 'Person',
-        name: this.blog.author
-      },
-      description: this.blog.excerpt
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(schema);
-    document.head.appendChild(script);
-
     const id = parseInt(this.route.snapshot.paramMap.get('id') || '0', 10);
     this.blog = BLOGS.find(b => b.uid === id);
 
@@ -47,6 +30,22 @@ export class BlogDetailComponent implements OnInit {
     }
 
     if (this.blog) {
+      const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: this.blog.title,
+        datePublished: this.blog.date,
+        author: {
+          '@type': 'Person',
+          name: this.blog.author
+        },
+        description: this.blog.excerpt
+      };
+
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
       this.title.setTitle(`${this.blog.title} | Responsive Units`);
 
       this.meta.updateTag({
