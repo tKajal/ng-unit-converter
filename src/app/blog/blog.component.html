@@ -12,7 +12,7 @@
       <h3>{{ blog.title }}</h3>
       <div class="date">Published: {{ blog.date }}</div>
       <p class="excerpt">{{ blog.excerpt }}</p>
-      <a [routerLink]="['/blog', blog.id]" class="read-more">Read More →</a>
+      <a [routerLink]="['/blog', blog.uid]" class="read-more">Read More →</a>
     </div>
   </div>
 </div>

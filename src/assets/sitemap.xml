@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://responsive-units.vercel.app/blog</loc>
+  </url>
+  <url>
+    <loc>https://responsive-units.vercel.app/blog/why-use-rem-over-px</loc>
+  </url>
+  <url>
+    <loc>https://responsive-units.vercel.app/blog/em-vs-rem</loc>
+  </url>
+  <url>
+    <loc>https://responsive-units.vercel.app/blog/px-to-percent</loc>
+  </url>
+</urlset>
