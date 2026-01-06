@@ -1,11 +1,11 @@
 <div class="blog-detail" *ngIf="blog">
   <div class="hero-section">
-    <h1 class="title">{{ blog.title }}</h1>
+    <h1 class="title">{{ blog?.title }}</h1>
 
     <div class="meta">
-      <span>📅 {{ blog.date }}</span>
-      <span>✍️ {{ blog.author }}</span>
-      <span>⏱ {{ blog.readTime }}</span>
+      <span>📅 {{ blog?.date }}</span>
+      <span>✍️ {{ blog?.author }}</span>
+      <span>⏱ {{ blog?.readTime }}</span>
     </div>
   </div>
 
