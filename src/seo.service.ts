@@ -1,33 +1,54 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
- 
-constructor(
-  private meta: Meta,
-  private title: Title,
-  @Inject(DOCUMENT) private document: Document
-) {}
 
-update(titleText: string, description: string, canonical?: string) {
-  this.title.setTitle(titleText);
+  constructor(
+    private title: Title,
+    private meta: Meta,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
-  this.meta.updateTag({
-    name: 'description',
-    content: description
-  });
+  /** ✅ Standard meta update */
+  update(title: string, description: string, url?: string) {
+    this.title.setTitle(title);
 
-  if (canonical) {
-    let link: HTMLLinkElement =
-      this.document.querySelector("link[rel='canonical']") ||
-      this.document.createElement('link');
+    this.meta.updateTag({ name: 'description', content: description });
 
-    link.setAttribute('rel', 'canonical');
-    link.setAttribute('href', canonical);
-
-    this.document.head.appendChild(link);
+    if (url) {
+      this.setCanonical(url);
+    }
   }
-}
+
+  /** ✅ Canonical URL */
+  setCanonical(url: string) {
+    let link = this.document.querySelector("link[rel='canonical']") as HTMLLinkElement;
+
+    if (!link) {
+      link = this.document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      this.document.head.appendChild(link);
+    }
+
+    link.setAttribute('href', url);
+  }
+
+  /** ✅ JSON-LD (Schema.org) */
+  addJsonLd(schema: object) {
+    // Avoid duplicate schema
+    const existing = this.document.querySelector('script[type="application/ld+json"]');
+    if (existing) {
+      existing.remove();
+    }
+
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+
+    // SSR-safe
+    this.document.head.appendChild(script);
+  }
 }

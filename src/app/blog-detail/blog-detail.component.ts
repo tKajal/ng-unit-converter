@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BLOGS } from '../blog.data';
 import { Meta, Title } from '@angular/platform-browser';
+import { SeoService } from '../../seo.service';
 
 @Component({
   selector: 'app-blog-detail',
@@ -17,7 +18,8 @@ export class BlogDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router,
     private meta: Meta,
-    private title: Title
+    private title: Title,
+    private seo: SeoService
   ) { }
 
   ngOnInit(): void {
@@ -30,33 +32,30 @@ export class BlogDetailComponent implements OnInit {
     }
 
     if (this.blog) {
-      const schema = {
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: this.blog.title,
-        datePublished: this.blog.date,
-        author: {
-          '@type': 'Person',
-          name: this.blog.author
+      this.seo.update(
+        `${this.blog.title} | Responsive Units`,
+        this.blog.excerpt,
+        `https://responsive-units.vercel.app/blog/${this.blog.id}`
+      );
+
+      this.seo.addJsonLd({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": this.blog.title,
+        "description": this.blog.excerpt,
+        "author": {
+          "@type": "Person",
+          "name": "Kajal Thakur"
         },
-        description: this.blog.excerpt
-      };
-
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.text = JSON.stringify(schema);
-      document.head.appendChild(script);
-      this.title.setTitle(`${this.blog.title} | Responsive Units`);
-
-      this.meta.updateTag({
-        name: 'description',
-        content: this.blog.excerpt
-      });
-
-      this.meta.updateTag({
-        name: 'keywords',
-        content:
-          'CSS units, REM vs PX, EM vs REM, responsive design, web accessibility'
+        "publisher": {
+          "@type": "Organization",
+          "name": "Responsive Units"
+        },
+        "datePublished": this.blog.date,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://responsive-units.vercel.app/blog/${this.blog.id}`
+        }
       });
     }
 
