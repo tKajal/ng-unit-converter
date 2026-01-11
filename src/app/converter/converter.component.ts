@@ -11,6 +11,7 @@ import { ConversionTableComponent } from '../conversion-table/conversion-table.c
 import { FaqComponent } from '../faq/faq.component';
 import { MatIconModule } from '@angular/material/icon';
 import { SeoService } from '../../seo.service';
+import { SITE_URL } from '../constants/site.constants';
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
@@ -55,25 +56,25 @@ export class ConverterComponent implements OnInit {
     });
   }
 
-  updateSeo() {
-    switch (this.toolType) {
-      case 'px-to-rem':
-        this.seo.update(
-          'PX to REM Converter Online – Responsive Units',
-          'Free PX to REM converter for responsive CSS. Convert px to rem instantly.',
-          'https://responsive-units.vercel.app/converter/px-to-rem'
-        );
-        break;
+updateSeo() {
+  switch (this.toolType) {
+    case 'px-to-rem':
+      this.seo.update(
+        'PX to REM Converter Online – Responsive Units',
+        'Free PX to REM converter for responsive CSS. Convert px to rem instantly.',
+        `${SITE_URL}/converter/px-to-rem`
+      );
+      break;
 
-      case 'rem-to-px':
-        this.seo.update(
-          'REM to PX Converter Online – Responsive Units',
-          'Convert REM to PX instantly with accurate CSS unit calculations.',
-          'https://responsive-units.vercel.app/converter/rem-to-px'
-        );
-        break;
-    }
+    case 'rem-to-px':
+      this.seo.update(
+        'REM to PX Converter Online – Responsive Units',
+        'Convert REM to PX instantly with accurate CSS unit calculations.',
+        `${SITE_URL}/converter/rem-to-px`
+      );
+      break;
   }
+}
 
 
   setToolConfig(shouldReset: boolean = true): void {

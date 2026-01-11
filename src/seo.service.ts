@@ -4,6 +4,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
+  private jsonLdScriptId = 'json-ld-script';
 
   constructor(
     private title: Title,
@@ -12,20 +13,20 @@ export class SeoService {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  /** ✅ Standard meta update */
-  update(title: string, description: string, url?: string) {
+  update(title: string, description: string, canonicalUrl?: string) {
     this.title.setTitle(title);
 
     this.meta.updateTag({ name: 'description', content: description });
 
-    if (url) {
-      this.setCanonical(url);
+    if (canonicalUrl) {
+      this.setCanonical(canonicalUrl);
     }
   }
 
-  /** ✅ Canonical URL */
   setCanonical(url: string) {
-    let link = this.document.querySelector("link[rel='canonical']") as HTMLLinkElement;
+    let link = this.document.querySelector(
+      "link[rel='canonical']"
+    ) as HTMLLinkElement;
 
     if (!link) {
       link = this.document.createElement('link');
@@ -36,19 +37,18 @@ export class SeoService {
     link.setAttribute('href', url);
   }
 
-  /** ✅ JSON-LD (Schema.org) */
   addJsonLd(schema: object) {
-    // Avoid duplicate schema
-    const existing = this.document.querySelector('script[type="application/ld+json"]');
-    if (existing) {
-      existing.remove();
+    // remove existing schema
+    const oldScript = this.document.getElementById(this.jsonLdScriptId);
+    if (oldScript) {
+      oldScript.remove();
     }
 
     const script = this.document.createElement('script');
+    script.id = this.jsonLdScriptId;
     script.type = 'application/ld+json';
     script.text = JSON.stringify(schema);
 
-    // SSR-safe
     this.document.head.appendChild(script);
   }
 }
